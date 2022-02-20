@@ -1,0 +1,13 @@
+syntax = "proto3";
+package shared;
+option go_package = "/proto";
+import "general.proto";
+
+message RequestLogin{
+  string Username = 1;
+  string Password = 2;
+}
+
+service LoginRequest{
+  rpc Login(RequestLogin) returns(ResponseMessage){}
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+package shared;
+option go_package = "/proto";
+import "general.proto";
+
+message RequestCreateUser{
+  optional  string Email = 1;
+  string Name = 2;
+  string Username = 3;
+  string Password = 4;
+}
+message DetailUser{
+  string Username = 1;
+}
+service User{
+  rpc Create(RequestCreateUser) returns(ResponseMessage){}
+  rpc Detail(DetailUser) returns(ResponseMessage){}
+}

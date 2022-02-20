@@ -1,0 +1,15 @@
+syntax = "proto3";
+package shared;
+option go_package = "/proto";
+import "general.proto";
+
+message RequestRegister{
+  string Username = 1;
+  string Email = 2;
+  string Password = 3;
+  string PasswordConfirmation = 4;
+}
+
+service RegisterRequest{
+  rpc Register(RequestRegister) returns(ResponseMessage){}
+}
