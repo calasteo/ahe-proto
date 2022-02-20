@@ -9,10 +9,17 @@ message RequestCreateUser{
   string Username = 3;
   string Password = 4;
 }
+message RequestListUser{
+  optional int32 PerPage = 1;
+  int32 Page = 2;
+  optional string Q = 3;
+
+}
 message DetailUser{
   string Username = 1;
 }
 service User{
   rpc Create(RequestCreateUser) returns(ResponseMessage){}
   rpc Detail(DetailUser) returns(ResponseMessage){}
+  rpc List(RequestListUser) returns(ResponseMessage){}
 }
